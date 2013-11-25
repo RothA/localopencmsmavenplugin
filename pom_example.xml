@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>testgroup</groupId>
+ <artifactId>localopencms</artifactId>
+ <version>0.0.1-SNAPSHOT</version>
+ <name>Local OpenCms Environment</name>
+ <description>Local OpenCms Environment</description>
+ <properties>
+  <opencmsModuleSuffix>-8.5.0-SNAPSHOT-opencms-module.zip</opencmsModuleSuffix>
+ </properties>
+ <!-- Plugin Repositories -->
+ <pluginRepositories>
+  <pluginRepository>
+   <id>Archiva</id>
+   <name>Archiva Repository</name>
+   <url>http://archiveserverurl</url>
+   <layout>default</layout>
+   <snapshots>
+    <enabled>true</enabled>
+   </snapshots>
+   <releases>
+    <updatePolicy>never</updatePolicy>
+   </releases>
+  </pluginRepository>
+ </pluginRepositories>
+ <build>
+  <plugins>
+   <!-- Local OpenCms Environment -->
+   <plugin>
+    <groupId>com.dispatch.maven.opencms</groupId>
+    <artifactId>localopencms-plugin</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+    <executions>
+     <execution>
+      <goals>
+       <goal>installmodules</goal>
+       <goal>start</goal>
+       <goal>stop</goal>
+       <goal>init</goal>
+       <goal>reinstall</goal>
+      </goals>
+     </execution>
+    </executions>
+    <configuration>
+     <openCmsEnvironmentZipFile>http://testserver/base_opencms_8_5_1_jetty8.zip</openCmsEnvironmentZipFile>
+     <targetDirectory>${project.build.directory}/opencms_local/</targetDirectory>
+     <startupJar>${project.build.directory}/opencms_local/start.jar</startupJar>
+     <baseOpenCmsZipUrl>http://testserver/base_opencms_8_5_1_jetty8.zip</baseOpenCmsZipUrl>
+     <outputOpenCmsZipFile>${project.build.directory}/opencms_environment.zip</outputOpenCmsZipFile>
+     <openCmsRootPath>${project.build.directory}/opencms_local/webapps/opencms/WEB-INF/</openCmsRootPath>
+     <openCmsUserName>User</openCmsUserName>
+     <openCmsPassword>Dispatch1</openCmsPassword>
+     <moduleImportFiles>
+      <moduleImportFile>${project.basedir}/framework/target/frameworkmodule${opencmsModuleSuffix}</moduleImportFile>
+      <moduleImportFile>${project.basedir}/advertising/target/advertisingmodule${opencmsModuleSuffix}</moduleImportFile>
+      <moduleImportFile>${project.basedir}/analytics/target/analyticsmodule${opencmsModuleSuffix}</moduleImportFile>
+     </moduleImportFiles>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>
+</project>
