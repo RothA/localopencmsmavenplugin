@@ -6,11 +6,9 @@ For OpenCms developers that use Maven, I have created a local OpenCms environmen
 Local Environment Zip Files
 ---------------------------
 
-I have created two base OpenCms 8.5.1 installations as follows:
-		
-	1. Targeting JDK v1.6 running Jetty v8: 
+I have created a base OpenCms 8.5.1 installations that targets JDK v1.6 running Jetty v8: 
 	
-	2. Targeting JDK v1.7 running Jetty V9: 
+	- https://s3-us-west-2.amazonaws.com/opencmsdocs/base_opencms_8_5_1_jetty8_v3.zip
 	
 Maven Goals
 -----------
