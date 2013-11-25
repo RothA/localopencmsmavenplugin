@@ -55,6 +55,9 @@ The plugin has the following maven goals.  NOTE: You must be using JDK 1.6 to ru
 
 Plugin Configuration
 --------------------
+
+Refer to the [Example Pom.xml](pom_example.xml)
+
 The plugin exposes the various configuration options:
 
 	1. openCmsEnvironmentZipFile
